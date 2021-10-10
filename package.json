@@ -2,9 +2,11 @@
   "name": "lugubrum-v3",
   "version": "1.0.0",
   "description": "LUGUBRUM homepage version 3",
-  "main": "index.html",
+  "source": "src/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel",
+    "build": "parcel build"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/jimmy-chr/lugubrum-v3/issues"
   },
-  "homepage": "https://github.com/jimmy-chr/lugubrum-v3#readme"
+  "homepage": "https://github.com/jimmy-chr/lugubrum-v3#readme",
+  "devDependencies": {
+    "parcel": "^2.0.0-rc.0"
+  }
 }
