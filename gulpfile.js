@@ -1,32 +1,60 @@
-var gulp = require("gulp"),
-  browserSync = require("browser-sync").create(),
-  sass = require("gulp-sass");
+const gulp = require("gulp");
+const browsersync = require("browser-sync").create();
+const fileinclude = require("gulp-file-include");
 
-// Compile sass into CSS & auto-inject into browsers
-gulp.task(
-  "sass",
-  gulp.series(function () {
-    return gulp
-      .src("app/scss/*.scss")
-      .pipe(sass())
-      .pipe(gulp.dest("app/css"))
-      .pipe(browserSync.stream());
-  })
-);
+// Browser server
+function browsersyncServe(cb) {
+  browsersync.init({
+    server: {
+      baseDir: "./dist",
+    },
+  });
+  cb();
+}
 
-// Static Server + watching scss/html files
-gulp.task(
-  "serve",
-  gulp.series("sass", function () {
-    browserSync.init({
-      server: "./app",
-      // or
-      // proxy: 'yourserver.dev'
-    });
+// Browser reload
+function browsersyncReload(cb) {
+  browsersync.reload();
+  cb();
+}
 
-    gulp.watch("app/scss/*.scss", ["sass"]);
-    gulp.watch("app/*.html").on("change", browserSync.reload);
-  })
-);
+// Process html
+function html() {
+  return gulp
+    .src("./src/*.html")
+    .pipe(fileinclude())
+    .on("error", function () {
+      notify("HTML include error");
+    })
+    .pipe(gulp.dest("dist/"));
+}
 
-gulp.task("default", gulp.series("serve"));
+// Process images
+function images() {
+  return gulp
+    .src("src/images/**/*.{png,gif,jpg}")
+    .pipe(gulp.dest("dist/images/"));
+}
+
+// Process images
+function css() {
+  return gulp.src("src/styling/**/*.css").pipe(gulp.dest("dist/styling/"));
+}
+
+// Watch Task
+function watchTask() {
+  gulp.watch("./src/*.html", gulp.series(html, browsersyncReload));
+  gulp.watch(
+    "./src/images/**/*.{png,gif,jpg}",
+    gulp.series(images, browsersyncReload)
+  );
+  gulp.watch("src/styling/**/*.css", css);
+}
+
+const build = gulp.parallel(images, html, css);
+const watch = gulp.parallel(watchTask, browsersyncServe);
+
+// export tasks
+exports.build = build;
+exports.watch = watch;
+exports.default = build;
