@@ -1,6 +1,7 @@
 const gulp = require("gulp");
 const browsersync = require("browser-sync").create();
 const fileinclude = require("gulp-file-include");
+const notify = require("gulp-notify");
 
 // Browser server
 function browsersyncServe(cb) {
@@ -43,7 +44,7 @@ function css() {
 
 // Watch Task
 function watchTask() {
-  gulp.watch("./src/*.html", gulp.series(html, browsersyncReload));
+  gulp.watch("./src/**/*.html", gulp.series(html, browsersyncReload));
   gulp.watch(
     "./src/images/**/*.{png,gif,jpg}",
     gulp.series(images, browsersyncReload)
@@ -52,7 +53,7 @@ function watchTask() {
 }
 
 const build = gulp.parallel(images, html, css);
-const watch = gulp.parallel(watchTask, browsersyncServe);
+const watch = gulp.series(build, gulp.parallel(watchTask, browsersyncServe));
 
 // export tasks
 exports.build = build;
