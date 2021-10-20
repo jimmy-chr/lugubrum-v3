@@ -14,7 +14,6 @@ body {
 
   ul {
     list-style-type: disc;
-    list-style-image: url(../images/ruli.jpg);
   }
 
   ol {
@@ -71,12 +70,12 @@ body {
 // Content pages
 .container {
   display: flex;
-  justify-content: space-between;
 
   .border {
     position: fixed;
     height: 100%;
     box-sizing: border-box;
+    top: 0;
 
     &.left {
       left: 0;
@@ -100,11 +99,12 @@ body {
     margin-right: 5rem;
     .menu {
       position: fixed;
+      max-width: 75%;
+      left: 7rem;
     }
 
     .main-content {
-      position: relative;
-      margin-left: 15rem;
+      margin-left: 20rem;
       text-align: center;
       max-width: 75%;
 
