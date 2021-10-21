@@ -4,6 +4,10 @@ $text-color: #cccccc;
 $brown-color: #996633;
 $red-color: #ff0000;
 
+div {
+  outline: 1px solid red;
+}
+
 // Main styling
 body {
   background: $bg-color;
@@ -108,14 +112,28 @@ body {
       text-align: center;
       max-width: 75%;
 
+      // News section
       .news-date {
         color: $brown-color;
         font-style: italic;
         font-weight: 700;
       }
 
+      // Biography section
       .bio-content {
         text-align: left;
+      }
+
+      // Discography section
+      .disco-title {
+        font-weight: 800;
+        font-size: large;
+      }
+
+      .disco-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
   }
