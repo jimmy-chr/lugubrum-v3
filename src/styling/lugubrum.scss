@@ -99,8 +99,11 @@ body {
 
   .main {
     display: flex;
-    margin-left: 5rem;
-    margin-right: 5rem;
+    text-align: center;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    margin: auto;
+    width: 100%;
     .menu {
       position: fixed;
       max-width: 75%;
@@ -108,9 +111,11 @@ body {
     }
 
     .main-content {
-      margin-left: 20rem;
+      margin: auto;
+      width: 100%;
+      padding-left: 15rem;
       text-align: center;
-      max-width: 75%;
+      max-width: 800px;
 
       // News section
       .news-date {
