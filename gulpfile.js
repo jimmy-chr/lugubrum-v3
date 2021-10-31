@@ -3,6 +3,7 @@ const browsersync = require("browser-sync").create();
 const fileinclude = require("gulp-file-include");
 const notify = require("gulp-notify");
 const sass = require("gulp-sass")(require("sass"));
+const { SiteChecker } = require("broken-link-checker");
 
 // Browser server
 function browsersyncServe(cb) {
@@ -57,6 +58,47 @@ function watchTask() {
   gulp.watch("src/styling/**/*.scss", gulp.series(css, browsersyncReload));
 }
 
+// Broken link checker
+function checkLinks() {
+  const siteChecker = new SiteChecker(
+    {
+      excludeInternalLinks: false,
+      excludeExternalLinks: false,
+      filterLevel: 3,
+      acceptedSchemes: ["http", "https"],
+      excludedKeywords: [
+        "linkedin",
+        "facebook",
+        "twitter",
+        "reddit",
+        "youtube",
+        "ycombinator",
+        "namecheap",
+      ],
+      excludeLinksToSamePage: false,
+    },
+    {
+      robots: function (robots, customData) {},
+      html: function (tree, robots, response, pageUrl, customData) {},
+      junk: function (result, customData) {
+        // console.log(result);
+      },
+      link: function (result, customData) {
+        if (result.broken) {
+          console.log(result);
+        }
+      },
+      page: function (error, pageUrl, customData) {},
+      site: function (error, siteUrl, customData) {},
+      end: function () {
+        console.log("checkLinks done");
+      },
+    }
+  );
+
+  siteChecker.enqueue("http://localhost:3000/");
+}
+
 const build = gulp.parallel(images, html, css);
 const watch = gulp.series(build, gulp.parallel(watchTask, browsersyncServe));
 
@@ -64,3 +106,4 @@ const watch = gulp.series(build, gulp.parallel(watchTask, browsersyncServe));
 exports.build = build;
 exports.watch = watch;
 exports.default = build;
+exports.checkLinks = checkLinks;
