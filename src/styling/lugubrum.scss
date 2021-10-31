@@ -144,6 +144,18 @@ body {
       .disco-subtitle {
         font-weight: 600;
       }
+
+      // Lyrics and Art section
+      .lyrics-art-container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+      }
+
+      .lyrics-art-item {
+        width: 200px;
+        padding: 10px;
+      }
     }
   }
 }
