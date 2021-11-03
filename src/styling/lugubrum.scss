@@ -156,6 +156,22 @@ body {
         width: 200px;
         padding: 10px;
       }
+
+      .lyrics-art-albumtitle {
+        font-weight: 600;
+        font-size: x-large;
+      }
+
+      .lyrics-art-album-container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+      }
+
+      .lyrics-art-album-item {
+        width: 350px;
+        padding: 10px;
+      }
     }
   }
 }
