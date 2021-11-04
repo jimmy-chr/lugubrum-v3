@@ -172,6 +172,18 @@ body {
         max-width: 350px;
         padding: 20px;
       }
+
+      // Pictures section
+      .pictures-container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+      }
+
+      .pictures-item {
+        max-width: 300px;
+        padding: 10px;
+      }
     }
   }
 }
