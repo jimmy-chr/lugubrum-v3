@@ -48,6 +48,11 @@ function css() {
     .pipe(gulp.dest("./dist/styling/"));
 }
 
+// Process mp3 audio files
+function audio() {
+  return gulp.src("./src/audio/*.mp3").pipe(gulp.dest("./dist/audio/"));
+}
+
 // Watch task
 function watchTask() {
   gulp.watch("./src/**/*.html", gulp.series(html, browsersyncReload));
@@ -99,7 +104,7 @@ function checkLinks() {
   siteChecker.enqueue("http://localhost:3000/");
 }
 
-const build = gulp.parallel(images, html, css);
+const build = gulp.parallel(images, html, css, audio);
 const watch = gulp.series(build, gulp.parallel(watchTask, browsersyncServe));
 
 // Export tasks
