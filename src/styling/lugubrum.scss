@@ -184,6 +184,12 @@ body {
         max-width: 300px;
         padding: 10px;
       }
+
+      .int-rev-container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+      }
     }
   }
 }
