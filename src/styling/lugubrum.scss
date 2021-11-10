@@ -185,10 +185,31 @@ body {
         padding: 10px;
       }
 
+      // Interviews & Reviews section
       .int-rev-container {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-around;
+      }
+
+      .reviews-content {
+        text-align: left;
+      }
+
+      .review-source {
+        color: $brown-color;
+        font-style: italic;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .interview-source {
+        font-weight: 800;
+        font-size: large;
+      }
+
+      .interview-text {
+        text-align: left;
       }
     }
   }
