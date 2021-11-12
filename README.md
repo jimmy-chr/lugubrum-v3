@@ -9,10 +9,3 @@ commands:
 "npm run build" to create a dist folder to be uploaded
 
 "gulp checkLinks" to check for broken links, start this command in a second terminal screen after running in watchmode in a first terminal
-
-TODO LIST
-
-- alle pagina's afwerken
-- check broken links
-- Responsive
-- gulpfile ts
