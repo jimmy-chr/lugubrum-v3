@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+@@include('./includes/head.html')
+
+<body>
+  @@include('./includes/modal_placeholder.html')
+  <div class="container">
+    @@include('./includes/border_left.html')
+
+    <div class="main">
+      @@include('./includes/menu.html')
+
+      <div class="main-content">
+        <div>
+          <img src="images/video.jpg" width="200" height="50" alt="Video" />
+        </div>
+        <div>
+          <div>
+            <hr width="75%" />
+            <div>
+              <video controls>
+                <source src="video/LUGUBRUM_kraak_1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Live at (K-RAA-K)3 fest in Hasselt 2007</p>
+              <video controls>
+                <source src="video/LUGUBRUM_kraak_2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p>Live at (K-RAA-K)3 fest in Hasselt 2007</p>
+            </div>
+            <hr width="75%" />
+          </div>
+        </div>
+      </div>
+    </div>
+    @@include('./includes/border_right.html')
+  </div>
+</body>
+@@include('./includes/modal_script.html')
+
+</html>

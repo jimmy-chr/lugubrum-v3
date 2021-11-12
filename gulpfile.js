@@ -53,6 +53,11 @@ function audio() {
   return gulp.src("./src/audio/*.mp3").pipe(gulp.dest("./dist/audio/"));
 }
 
+// Process mp4 video files
+function video() {
+  return gulp.src("./src/video/*.mp4").pipe(gulp.dest("./dist/video/"));
+}
+
 // Favicon
 function favicon() {
   return gulp.src("./src/favicon/*.*").pipe(gulp.dest("./dist/"));
@@ -95,7 +100,9 @@ function checkLinks() {
       },
       link: function (result, customData) {
         if (result.broken) {
-          console.log(result);
+          console.log(
+            `source: ${result.base.original} - broken destination: ${result.url.original}`
+          );
         }
       },
       page: function (error, pageUrl, customData) {},
@@ -109,7 +116,7 @@ function checkLinks() {
   siteChecker.enqueue("http://localhost:3000/");
 }
 
-const build = gulp.parallel(images, html, css, audio, favicon);
+const build = gulp.parallel(images, html, css, audio, video, favicon);
 const watch = gulp.series(build, gulp.parallel(watchTask, browsersyncServe));
 
 // Export tasks

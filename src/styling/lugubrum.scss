@@ -4,8 +4,11 @@ $text-color: #cccccc;
 $brown-color: #996633;
 $red-color: #ff0000;
 
+$mobile-breakpoint: 750px;
+
+// Set to 1px for testing
 div {
-  outline: 1px solid red;
+  outline: 0px solid red;
 }
 
 // Main styling
@@ -45,6 +48,21 @@ body {
     max-width: 100%;
     height: auto;
   }
+
+  iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
+  audio {
+    max-width: 100%;
+    height: auto;
+  }
+
+  video {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 // Index page
@@ -76,23 +94,28 @@ body {
   display: flex;
 
   .border {
-    position: fixed;
-    height: 100%;
-    box-sizing: border-box;
-    top: 0;
+    display: none;
 
-    &.left {
-      left: 0;
-      img {
-        width: 100%;
-        height: 100%;
+    @media only screen and (min-width: $mobile-breakpoint) {
+      display: block;
+      position: fixed;
+      height: 100%;
+      box-sizing: border-box;
+      top: 0;
+
+      &.left {
+        left: 0;
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
-    }
-    &.right {
-      right: 0;
-      img {
-        width: 100%;
-        height: 100%;
+      &.right {
+        right: 0;
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
@@ -107,13 +130,21 @@ body {
     .menu {
       position: fixed;
       max-width: 75%;
-      left: 7rem;
+
+      left: 1rem;
+
+      @media only screen and (min-width: $mobile-breakpoint) {
+        left: 7rem;
+      }
     }
 
     .main-content {
       margin: auto;
       width: 100%;
-      padding-left: 15rem;
+      padding-left: 9rem;
+      @media only screen and (min-width: $mobile-breakpoint) {
+        padding-left: 15rem;
+      }
       text-align: center;
       max-width: 800px;
 
