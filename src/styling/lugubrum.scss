@@ -176,32 +176,44 @@ body {
         font-weight: 600;
       }
 
-      // Lyrics and Art section
-      .lyrics-art-container {
+      // Lyrics section
+      .lyrics-container {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-around;
       }
 
-      .lyrics-art-item {
+      .lyrics-item {
         width: 200px;
         padding: 10px;
       }
 
-      .lyrics-art-albumtitle {
+      .lyrics-albumtitle {
         font-weight: 600;
         font-size: x-large;
       }
 
-      .lyrics-art-album-container {
+      .lyrics-album-container {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-around;
       }
 
-      .lyrics-art-album-item {
+      .lyrics-album-item {
         max-width: 350px;
         padding: 20px;
+      }
+
+      // Art section
+      .art-container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+      }
+
+      .art-item {
+        max-width: 300px;
+        padding: 10px;
       }
 
       // Pictures section
@@ -216,22 +228,11 @@ body {
         padding: 10px;
       }
 
-      // Interviews & Reviews section
-      .int-rev-container {
+      // Press section
+      .press-container {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-around;
-      }
-
-      .reviews-content {
-        text-align: left;
-      }
-
-      .review-source {
-        color: $brown-color;
-        font-style: italic;
-        font-weight: 700;
-        text-align: center;
       }
 
       .interview-source {
